@@ -1,0 +1,38 @@
+---
+name: Test action
+on:
+  workflow_call:
+    inputs:
+      files:
+        type: string
+        description: "Fixed files"
+        required: false
+    secrets:
+      gh_app_id:
+        required: true
+      gh_app_private_key:
+        required: true
+jobs:
+  test-action:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - id: token
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
+        with:
+          app_id: ${{secrets.gh_app_id}}
+          private_key: ${{secrets.gh_app_private_key}}
+          repositories: >-
+            ["${{github.event.repository.name}}"]
+          permissions: >-
+            {
+              "contents": "write"
+            }
+      - uses: ./
+        with:
+          fix: true
+          github_token: ${{steps.token.outputs.token}}
+          files: ${{inputs.files}}
