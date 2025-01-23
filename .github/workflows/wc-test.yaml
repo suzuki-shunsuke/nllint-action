@@ -2,6 +2,11 @@
 name: Test action
 on:
   workflow_call:
+    inputs:
+      files:
+        type: string
+        description: "Fixed files"
+        required: false
     secrets:
       gh_app_id:
         required: true
@@ -30,3 +35,4 @@ jobs:
         with:
           fix: true
           github_token: ${{steps.token.outputs.token}}
+          files: ${{inputs.files}}
