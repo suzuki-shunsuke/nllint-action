@@ -8,7 +8,7 @@ inputs:
     required: false
     default: ${{ github.token }}
   files:
-    description: "Fixed files"
+    description: "Space separated fixed files. If not set, all files (git ls-files) are fixed"
     required: false
   fix:
     description: true or false. If true, a fixed commit is pushed
