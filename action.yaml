@@ -57,7 +57,7 @@ runs:
       env:
         FILES: ${{inputs.files}}
         TRIM_SPACE: ${{inputs.trim_space}}
-        GITHUB_TOKEN: ${{inputs.gihtub_token}}
+        GITHUB_TOKEN: ${{inputs.github_token}}
       run: |
         tempfile=$(mktemp)
         opts="-i -f"
