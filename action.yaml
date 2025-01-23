@@ -59,7 +59,7 @@ runs:
         GITHUB_TOKEN: ${{inputs.gihtub_token}}
       run: |
         tempfile=$(mktemp)
-        opts=-i -f
+        opts="-i -f"
         if [ "${TRIM_SPACE:-}" = true ]; then
           opts="$opts -s"
         fi
