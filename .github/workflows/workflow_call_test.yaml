@@ -8,8 +8,8 @@ jobs:
     timeout-minutes: 10
     outputs:
       renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
-      changed_files: ${{steps.changes.outputs.all_files}}
-    runs-on: ubuntu-latest
+      ghalint: ${{steps.changes.outputs.ghalint}}
+    runs-on: ubuntu-24.04
     permissions: {}
     steps:
       - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
@@ -21,8 +21,11 @@ jobs:
               - renovate.json5
               - .github/workflows/test.yaml
               - .github/workflows/wc-renovate-config-validator.yaml
-            all:
-              - "**"
+            ghalint:
+              - .github/workflows/*.yaml
+              - aqua/aqua.yaml
+              - aqua/imports/ghalint.yaml
+              - ghalint.yaml
 
   renovate-config-validator:
     uses: ./.github/workflows/wc-renovate-config-validator.yaml
@@ -31,9 +34,24 @@ jobs:
     permissions:
       contents: read
 
+  ghalint:
+    needs: path-filter
+    if: needs.path-filter.outputs.ghalint == 'true'
+    uses: ./.github/workflows/wc-ghalint.yaml
+    permissions: {}
+
   test:
     uses: ./.github/workflows/wc-test.yaml
     needs: path-filter
-    permissions: {}
+    permissions:
+      contents: write
+
+  create-pr-branch:
+    uses: ./.github/workflows/wc-create-pr-branch.yaml
+    if: github.event.pull_request.user.login == 'suzuki-shunsuke'
+    permissions:
+      contents: write
+      pull-requests: write
     with:
-      files: ${{needs.path-filter.outputs.changed_files}}
+      version: pr/${{github.event.pull_request.number}}
+      pr: ${{github.event.pull_request.number}}

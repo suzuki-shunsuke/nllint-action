@@ -1,12 +1,6 @@
 ---
 name: Test action
-on:
-  workflow_call:
-    inputs:
-      files:
-        type: string
-        description: "Fixed files"
-        required: false
+on: workflow_call
 jobs:
   test-action:
     runs-on: ubuntu-24.04
@@ -16,8 +10,9 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+      - run: npm ci
+      - run: npm run build
       - uses: ./
         with:
-          fix: true
           github_token: ${{github.token}}
-          files: ${{inputs.files}}
+          files: README.md

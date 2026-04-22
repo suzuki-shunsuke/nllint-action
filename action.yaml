@@ -1,84 +1,44 @@
 name: Fix newlines
 description: Fix newlines
+author: Shunsuke Suzuki
+
+branding:
+  icon: edit-3
+  color: blue
+
 inputs:
   github_token:
     description: |
-      GitHub Access Token
-      contents:write - Push commits
+      GitHub Access Token.
+      contents:write - Push commits (required when fix=true)
     required: false
     default: ${{ github.token }}
   files:
-    description: "Space separated fixed files. If not set, all files (git ls-files) are fixed"
+    description: |
+      Files to lint. Space- or newline-separated.
+      If empty, `git ls-files` is used.
     required: false
   fix:
-    description: true or false. If true, a fixed commit is pushed
+    description: If true, a fixed commit is pushed.
     required: false
     default: "false"
   trim_space:
-    description: true or false. If true, leading and trailing white spaces in files are disallowed
+    description: |
+      If true, leading and trailing white spaces in files are disallowed.
     required: false
     default: "true"
+  trim_trailing_space:
+    description: |
+      If true, trailing white spaces at the end of each line are disallowed.
+    required: false
+    default: "false"
+  fail_on_push:
+    description: |
+      If true (default), the action fails after it pushes a commit,
+      so the triggering workflow re-runs on the pushed commit.
+    required: false
+    default: "true"
+
 runs:
-  using: composite
-  steps:
-    - shell: bash
-      run: echo "AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:$GITHUB_ACTION_PATH/aqua/aqua.yaml" >> "$GITHUB_ENV"
-    - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
-      with:
-        aqua_version: v2.53.8
-        skip_install_aqua: true
-        aqua_opts: -l -a
-      env:
-        AQUA_GITHUB_TOKEN: ${{github.token}}
-    - run: ghcp -v
-      shell: bash
-      if: inputs.fix == 'true'
-    - run: nllint --version
-      shell: bash
-    - env:
-        FILES: ${{inputs.files}}
-        TRIM_SPACE: ${{inputs.trim_space}}
-      shell: bash
-      if: inputs.fix != 'true'
-      run: |
-        opts=-i
-        if [ "${TRIM_SPACE:-}" = true ]; then
-          opts="$opts -s"
-        fi
-        if [ -n "$FILES" ]; then
-          # shellcheck disable=SC2086
-          nllint $opts $FILES
-        else
-          # shellcheck disable=SC2086
-          git ls-files | xargs nllint $opts
-        fi
-    - shell: bash
-      if: inputs.fix == 'true'
-      env:
-        FILES: ${{inputs.files}}
-        TRIM_SPACE: ${{inputs.trim_space}}
-        GITHUB_TOKEN: ${{inputs.github_token}}
-      run: |
-        tempfile=$(mktemp)
-        opts="-i -f"
-        if [ "${TRIM_SPACE:-}" = true ]; then
-          opts="$opts -s"
-        fi
-
-        if [ -n "$FILES" ]; then
-          # shellcheck disable=SC2086
-          nllint $opts $FILES > "$tempfile"
-        else
-          # shellcheck disable=SC2086
-          git ls-files | xargs nllint $opts > "$tempfile"
-        fi
-
-        [ -s "$tempfile" ] || exit 0
-        echo "::warning::Pushing a commit for auto code format with nllint https://github.com/suzuki-shunsuke/nllint"
-        # shellcheck disable=SC2002
-        cat "$tempfile" |
-          xargs ghcp commit \
-            -r "$GITHUB_REPOSITORY" \
-            -b "${GITHUB_HEAD_REF}" \
-            -m "style(nllint): format code"
-        exit 1
+  using: "node24"
+  main: "dist/index.js"

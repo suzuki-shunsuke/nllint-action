@@ -1,69 +1,64 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghcp/v1.16.0/ghcp_darwin_amd64.tar.gz",
-      "checksum": "CA5EB65ED4469148B539AA4B83E1FB77887FAC3C36896DF8E5CC8702E7488B1A",
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.5.5/ghalint_1.5.5_darwin_amd64.tar.gz",
+      "checksum": "CE76AEB46F051D19A618C4E89AE5CA1D37C5A06F1BAC3AFB261FF619FD33045F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghcp/v1.16.0/ghcp_darwin_arm64.tar.gz",
-      "checksum": "56B0ED7135FEB44A2A7EC6A8960CA1E4C15D64B45A4ECDB307FC91A4EBBF33AC",
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.5.5/ghalint_1.5.5_darwin_arm64.tar.gz",
+      "checksum": "DB969E288FC788348AA7C1323096D69DF28B457C70B4194FB76F14AD058C0BE7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghcp/v1.16.0/ghcp_linux_amd64.tar.gz",
-      "checksum": "89D99FA73477C11A60B274E385B9E990125D411C73F971D4CF21069BF7DB92C6",
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.5.5/ghalint_1.5.5_linux_amd64.tar.gz",
+      "checksum": "579CBF9024F86A8255CE8ACDD56C7792F0F9A7E76063D64CFB7B66FF65C396E4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghcp/v1.16.0/ghcp_linux_arm64.tar.gz",
-      "checksum": "7DE544BF3CD3FA2830671F078484F0AA2C9C8BEC8D7E887835250E77A62CC775",
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.5.5/ghalint_1.5.5_linux_arm64.tar.gz",
+      "checksum": "C3AB464130015D733BFC75A2851F4FC5B3CB966ACA2ED8BC0FA2A029BC0EE6AF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghcp/v1.16.0/ghcp_windows_amd64.zip",
-      "checksum": "96A93551D3FA3760A85B0128EE0BC48B8913041022A2F59DA1FD8FE3D9DFA1C5",
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.5.5/ghalint_1.5.5_windows_amd64.zip",
+      "checksum": "58C2589E7455FC05D83A28051F9098984DB3FE6294F0F88AEDC9691AE25EAFF9",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghcp/v1.16.0/ghcp_windows_arm64.zip",
-      "checksum": "07BA508B368F50266E06CED36135F2A68D4816CDC38D739AA7E7D50E0CBFC265",
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.5.5/ghalint_1.5.5_windows_arm64.zip",
+      "checksum": "181024767B43BBA5EE15DBEBF8763DA6A1F576AEF5F18D5F44D5572471DA266B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.1.0/nllint_darwin_amd64.tar.gz",
-      "checksum": "25D719C1B23D37F748B6453A2DBFFC3E9C998731AF1E8114956A4AEBA413760C",
+      "id": "http/nodejs.org/dist/v24.15.0/node-v24.15.0-darwin-arm64.tar.gz",
+      "checksum": "372331B969779AB5D15B949884FC6EAF88D5AFE87BDE8BA881D6400B9100FFC4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.1.0/nllint_darwin_arm64.tar.gz",
-      "checksum": "B17088ADAA6D29CD59CFE3142CFBB082874F52039D39BEB3DE0F4209895E44F7",
+      "id": "http/nodejs.org/dist/v24.15.0/node-v24.15.0-darwin-x64.tar.gz",
+      "checksum": "FFD5EE293467927F3EE731A553EB88FD1F48CF74EEBC2D74A6BABE4AF228673B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.1.0/nllint_linux_amd64.tar.gz",
-      "checksum": "4ADB11D727BE9EA1220A6A63B2413EDBAFEC1E86C58BFFE772043AFC500F1FB9",
+      "id": "http/nodejs.org/dist/v24.15.0/node-v24.15.0-linux-arm64.tar.gz",
+      "checksum": "73AFC234D558C24919875F51C2D1EA002A2ADA4EA6F83601A383869FEFA64EED",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.1.0/nllint_linux_arm64.tar.gz",
-      "checksum": "F7EF1B230E32943AA128C2152A477C1229592E973C3399DB4EAB4E123660464B",
+      "id": "http/nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.gz",
+      "checksum": "44836872D9AEC49F1E6B52A9A922872DB9A2B02D235A616A5681B6A85FEC8D89",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.1.0/nllint_windows_amd64.zip",
-      "checksum": "79F84AB841B7F990480D9E2920F1F78A256DCE9F15E6F5F66612E747A6283C8D",
+      "id": "http/nodejs.org/dist/v24.15.0/node-v24.15.0-win-x64.zip",
+      "checksum": "CC5149EABD53779CE1E7BDC5401643622D0C7E6800ADE18928A767E940BB0E62",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.1.0/nllint_windows_arm64.zip",
-      "checksum": "F2BE3CC16A4684D4DD511A1339554FC85B3E5FFC74061801BA18F680527E29DE",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.496.0/registry.yaml",
+      "checksum": "4A04DA198765DDC0C008993BB455164ABE4A5D5FD7930CCC1DF3231557571DED",
       "algorithm": "sha256"
-    },
-    {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.300.0/registry.yaml",
-      "checksum": "673F7C1CF78BD6E20B145BC5D7085DD315F2F8DA0ABB788C7FC35A36D9F55237847C9F2A54C78ECE795B0F91B1A4975CB9F40881848B6635C9A8FCA63D0275DB",
-      "algorithm": "sha512"
     }
   ]
 }
