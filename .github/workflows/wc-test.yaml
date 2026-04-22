@@ -1,12 +1,6 @@
 ---
 name: Test action
-on:
-  workflow_call:
-    inputs:
-      files:
-        type: string
-        description: "Fixed files"
-        required: false
+on: workflow_call
 jobs:
   test-action:
     runs-on: ubuntu-24.04
@@ -21,4 +15,3 @@ jobs:
       - uses: ./
         with:
           github_token: ${{github.token}}
-          files: ${{inputs.files}}
