@@ -25,7 +25,7 @@ runs:
       run: echo "AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:$GITHUB_ACTION_PATH/aqua/aqua.yaml" >> "$GITHUB_ENV"
     - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
       with:
-        aqua_version: v2.53.8
+        aqua_version: v2.63.0
         skip_install_aqua: true
         aqua_opts: -l -a
       env:
